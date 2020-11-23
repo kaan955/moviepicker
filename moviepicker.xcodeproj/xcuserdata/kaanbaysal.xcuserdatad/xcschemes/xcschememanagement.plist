@@ -6,8 +6,28 @@
 	<dict>
 		<key>moviepicker.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>6B916EC52567C4A40090DDFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6B916EDB2567C4AA0090DDFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6B916EE62567C4AA0090DDFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
