@@ -11,22 +11,75 @@ class ViewController: UIViewController {
  
     @IBOutlet weak var myPickerView: UIPickerView!
     @IBOutlet weak var myToolbar: UIToolbar!
+ 
+    @IBAction func movieRateChange(_ sender: UISlider) {
+        let floatFinder = Int(sender.value)
+        let floatFinder2 = sender.value
+        let floatFinder3 = Double(floatFinder2) - Double(floatFinder)
+   
+       if(floatFinder3 >= 0.5)
+        {
+            valueRate = Double(floatFinder) + 0.5
+        }else if(floatFinder3 <= 0.49)
+        {
+            valueRate = Double(floatFinder)
+        }
+        
+        if(valueRate == 5)
+        {
+            valueRate = 4.5
+        }else if(valueRate == 0)
+        {
+            valueRate = 0.0
+            scorenot = true
+        }
+        myTableview.reloadData()
+    }
+ 
+    @IBAction func myCancelItem(_ sender: UIBarButtonItem) {
+      
+        myPickerView.isHidden = true
+        myToolbar.isHidden = true
+    }
+    @IBAction func myDoneItem(_ sender: Any) {
+        switch genderORcertification {
+        case 0:genderHolder = pendingGenderHolder
+        case 1:certificationHolder = pendingCertificationHolder
+        default: genderHolder = pendingGenderHolder
+        }
+  
+        myPickerView.isHidden = true
+        myToolbar.isHidden = true
+        myTableview.reloadData()
+    }
     
 
     @IBOutlet weak var myTableview: UITableView!
     var data = [PickClass]()
-    var gender:[String] = ["Action","Adventure","Animation","Comedy","Crime","Documentary","Drama","Family","Fantasy","History","Horror","Music","Mystery","Romance","Science Fiction","TV Movie","Thriller","War","Western"]
+    var gender:[String] = ["Any","Action","Adventure","Animation","Comedy","Crime","Documentary","Drama","Family","Fantasy","History","Horror","Music","Mystery","Romance","Science Fiction","TV Movie","Thriller","War","Western"]
     
-    var certification:[String] = ["General Audiences","Parenral Guidance Suggested","Parents Strongly Cautioned","Restricted","Adults Only"]
+    var certification:[String] = ["Any","General Audiences","Parenral Guidance Suggested","Parents Strongly Cautioned","Restricted","Adults Only"]
     
-    var genderHolder = "any"
-    var certificationHolder = "any"
-    var genderORcertification = 0;
+    var decade:[String] = ["2020's","2010's","2000's","1990's","1980's","1970's","1960's","1950's"]
+    
+    var genderHolder = "Any"
+    var pendingGenderHolder = "Any"
+    var certificationHolder = "Any"
+    var pendingCertificationHolder = "Any"
+    var scorenot = true
+    
+  
+    
+    var genderORcertification = 3
+    var valueRate = 0.5
+    var counter = 1
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        
+
         
         myTableview.dataSource = self
         myTableview.delegate = self
@@ -50,6 +103,9 @@ class ViewController: UIViewController {
         
     
     }
+    
+  
+
 }
 
     extension ViewController:UITableViewDelegate,UITableViewDataSource{
@@ -59,7 +115,7 @@ class ViewController: UIViewController {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return 5
+     return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,33 +130,72 @@ class ViewController: UIViewController {
                 return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "progressChange", for: indexPath) as! MyTableViewCell
+       
+            cell.myRangeSlider.maxValue = CGFloat(Calendar.current.component(.year, from: Date()))
+            cell.myRangeSlider.selectedMaxValue = CGFloat(Calendar.current.component(.year, from: Date()))
      
             return cell
        
         case 3:
             
                 let cell = tableView.dequeueReusableCell(withIdentifier: "movieTuru", for: indexPath) as! MyTableViewCell
+        
             cell.movieTuruL.text = "Genre".localized()
+            cell.movieTuruResult.text = genderHolder.localized()
                 return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "movieIzleyici", for: indexPath) as! MyTableViewCell
             cell.izleyiciKitlesi.text = "Certificate".localized()
+            cell.izleyiciKitlesiResult.text = certificationHolder.localized()
             return cell
+            
+        case 5:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "movieRate", for: indexPath) as! MyTableViewCell
+           
+            if(scorenot)
+            {
+                cell.filmRate.text = "Score: None"
+                scorenot = false
+            }else{
+                cell.filmRate.text = "Score: \(valueRate)+".localized()
+            }
+            
+            
+            
+            return cell
+    
         default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTuru", for: indexPath) as! MyTableViewCell
                 cell.movieTuruL.text = "deneme"
                 return cell
         }
-        
-    
-        
-    
     }
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            if(indexPath.row ==  3) //Check this later
+            {
+                genderORcertification = 0
+                myPickerView.reloadAllComponents()
+                myPickerView.isHidden = false
+                myToolbar.isHidden = false
+            }else if(indexPath.row == 4)
+            {
+                genderORcertification = 1
+                myPickerView.reloadAllComponents()
+                myPickerView.isHidden = false
+                myToolbar.isHidden = false
+            }else{
+                genderORcertification = 3
+            }
+            myPickerView.selectRow(0, inComponent: 0, animated: false)
+         
+        }
         
     }
 
 
 extension ViewController:UIPickerViewDelegate,UIPickerViewDataSource{
+    
+    
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -124,13 +219,27 @@ extension ViewController:UIPickerViewDelegate,UIPickerViewDataSource{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch genderORcertification {
-        case 0:return genderHolder = gender[row]
-        case 1:return  certificationHolder = gender[row]
+        case 0:return pendingGenderHolder = gender[row]
+        case 1:return  pendingCertificationHolder = certification[row]
         default:return genderHolder = gender[row]
         }
+        
        
     }
+    
 }
+
+
+
+    func didStartTouches(in slider: RangeSeekSlider) {
+        print("did start touches")
+    }
+
+    func didEndTouches(in slider: RangeSeekSlider) {
+        print("did end touches")
+    }
+
+
 
 
 extension String {

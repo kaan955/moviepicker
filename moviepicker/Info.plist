@@ -64,5 +64,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>NexaLight.otf</string>
+		<string>Nexa-Light.otf</string>
+		<string>IsidoraLight.otf</string>
+	</array>
 </dict>
 </plist>
