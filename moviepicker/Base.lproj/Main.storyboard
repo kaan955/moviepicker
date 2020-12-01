@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n0v-n0-zeV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Get Your Movie-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="moviepicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="moviepicker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Dk-jF-1N1">
-                                <rect key="frame" x="5" y="49" width="404" height="639"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Dk-jF-1N1">
+                                <rect key="frame" x="5" y="49" width="404" height="631"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="441" id="ZhJ-6X-GJH"/>
@@ -87,6 +88,9 @@
                                                             <color key="value" systemColor="systemRedColor"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="sliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="YjE-zL-0at"/>
+                                                    </connections>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVi-VC-qX1">
                                                     <rect key="frame" x="10" y="15" width="40" height="65.5"/>
@@ -145,21 +149,21 @@
                                             <outlet property="movieTuruResult" destination="Ber-SO-MsR" id="qlP-Xj-lLs"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieIzleyici" id="7lo-nM-dlF" customClass="MyTableViewCell" customModule="moviepicker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="405.5" width="404" height="38.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieIzleyici" rowHeight="109" id="7lo-nM-dlF" customClass="MyTableViewCell" customModule="moviepicker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="405.5" width="404" height="109"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7lo-nM-dlF" id="jhI-4R-dq5">
-                                            <rect key="frame" x="0.0" y="0.0" width="404" height="38.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="404" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Certificate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jh-Gh-DgR">
-                                                    <rect key="frame" x="10" y="10" width="98.5" height="18.5"/>
+                                                    <rect key="frame" x="10" y="10" width="98.5" height="89"/>
                                                     <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seçilmedi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tf7-14-QyN">
-                                                    <rect key="frame" x="307.5" y="10" width="66.5" height="18.5"/>
+                                                    <rect key="frame" x="307.5" y="10" width="66.5" height="89"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -184,7 +188,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieRate" rowHeight="120" id="2Kd-ca-ou1" customClass="MyTableViewCell" customModule="moviepicker" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="444" width="404" height="120"/>
+                                        <rect key="frame" x="0.0" y="514.5" width="404" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Kd-ca-ou1" id="45b-ep-uCh">
                                             <rect key="frame" x="0.0" y="0.0" width="404" height="120"/>
@@ -219,10 +223,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0B-gb-L17">
-                                <rect key="frame" x="0.0" y="680" width="414" height="216"/>
-                            </pickerView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfq-Eq-sp9">
+                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfq-Eq-sp9">
                                 <rect key="frame" x="0.0" y="636" width="414" height="44"/>
                                 <items>
                                     <barButtonItem title="Cancel" id="NR0-n0-a44">
@@ -238,12 +239,29 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giC-x1-lty">
+                                <rect key="frame" x="30" y="748" width="354" height="35"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Get Your Movie">
+                                    <color key="titleColor" systemColor="opaqueSeparatorColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="FindYourMovie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FKO-x6-cnT"/>
+                                </connections>
+                            </button>
+                            <pickerView hidden="YES" contentMode="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="t0B-gb-L17">
+                                <rect key="frame" x="0.0" y="680" width="414" height="216"/>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="t0B-gb-L17" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4nP-Mx-Oen"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="giC-x1-lty" secondAttribute="bottom" constant="30" id="BDG-2D-28e"/>
+                            <constraint firstItem="giC-x1-lty" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Cr8-5k-aTP"/>
                             <constraint firstItem="t0B-gb-L17" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Gjz-LQ-bOy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="giC-x1-lty" secondAttribute="trailing" constant="30" id="M1R-Ak-aEs"/>
                             <constraint firstItem="t0B-gb-L17" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MVR-Ya-hxa"/>
                             <constraint firstItem="t0B-gb-L17" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Qs2-Lo-mMC"/>
                             <constraint firstItem="5Dk-jF-1N1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="Yru-Ei-uZQ"/>
@@ -255,17 +273,79 @@
                             <constraint firstItem="tfq-Eq-sp9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tgG-pA-cfa"/>
                             <constraint firstAttribute="bottom" secondItem="t0B-gb-L17" secondAttribute="bottom" id="vMH-NT-7t6"/>
                             <constraint firstItem="5Dk-jF-1N1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="vtR-30-N0F"/>
+                            <constraint firstAttribute="bottom" secondItem="t0B-gb-L17" secondAttribute="bottom" id="wvl-uG-azg"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="t0B-gb-L17"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Get Your Movie" id="d08-sI-HIs">
+                        <imageReference key="image" image="play.rectangle.fill" catalog="system" symbolScale="large"/>
+                        <imageReference key="selectedImage" image="play.rectangle" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="myPickerView" destination="t0B-gb-L17" id="kgV-lG-JMZ"/>
                         <outlet property="myTableview" destination="5Dk-jF-1N1" id="C9r-n2-RqS"/>
                         <outlet property="myToolbar" destination="tfq-Eq-sp9" id="xqF-sf-rwO"/>
+                        <outlet property="tabItem" destination="d08-sI-HIs" id="WTf-Nf-oXm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="737.68115942028987" y="48.883928571428569"/>
+            <point key="canvasLocation" x="-1346.376811594203" y="-1564.2857142857142"/>
+        </scene>
+        <!--Your Movies-->
+        <scene sceneID="LF7-8y-DsX">
+            <objects>
+                <viewController id="uSJ-r5-W5t" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VrS-WX-2RA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nP0-dJ-MRI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Your Movies" image="star.square.fill" catalog="system" selectedImage="star.square" id="aoW-i5-2kg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m3y-Bf-4sv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-422" y="-1564"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="Shh-QO-2Ny">
+            <objects>
+                <viewController id="k3l-3z-5WJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rfp-ae-wUj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="fyE-Fd-MMP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="About" image="info.circle.fill" catalog="system" selectedImage="info.circle" id="2Ih-Nb-4hX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JFU-14-Yw7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="471" y="-1564"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="mMh-pz-pf1">
+            <objects>
+                <tabBarController hidesBottomBarWhenPushed="YES" id="n0v-n0-zeV" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lap-Uj-Lx1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="1L2-f2-v5s"/>
+                        <segue destination="uSJ-r5-W5t" kind="relationship" relationship="viewControllers" id="ry1-II-n1u"/>
+                        <segue destination="k3l-3z-5WJ" kind="relationship" relationship="viewControllers" id="9fE-RY-FGw"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R5P-3k-KmW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-423" y="-2326"/>
         </scene>
     </scenes>
     <designables>
@@ -274,8 +354,20 @@
         </designable>
     </designables>
     <resources>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="play.rectangle" catalog="system" width="128" height="93"/>
+        <image name="play.rectangle.fill" catalog="system" width="128" height="93"/>
+        <image name="star.square" catalog="system" width="128" height="114"/>
+        <image name="star.square.fill" catalog="system" width="128" height="114"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

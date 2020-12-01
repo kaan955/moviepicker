@@ -11,9 +11,6 @@
 		6B390A43257304A8002BD287 /* TapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B390A40257304A8002BD287 /* TapticEngine.swift */; };
 		6B390A44257304A8002BD287 /* RangeSeekSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B390A41257304A8002BD287 /* RangeSeekSliderDelegate.swift */; };
 		6B390A45257304A8002BD287 /* RangeSeekSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B390A42257304A8002BD287 /* RangeSeekSlider.swift */; };
-		6B3B6B062573DAC9004217F6 /* Nexa-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B6B052573DAC9004217F6 /* Nexa-Light.otf */; };
-		6B3B6B0E2573E562004217F6 /* IsidoraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B3B6B0D2573E562004217F6 /* IsidoraLight.otf */; };
-		6B40E3262573D20200C4AE8E /* NexaLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6B40E3252573D20200C4AE8E /* NexaLight.otf */; };
 		6B916ECA2567C4A40090DDFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B916EC92567C4A40090DDFD /* AppDelegate.swift */; };
 		6B916ECC2567C4A40090DDFD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B916ECB2567C4A40090DDFD /* SceneDelegate.swift */; };
 		6B916ECE2567C4A40090DDFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B916ECD2567C4A40090DDFD /* ViewController.swift */; };
@@ -54,9 +51,6 @@
 		6B390A40257304A8002BD287 /* TapticEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEngine.swift; sourceTree = "<group>"; };
 		6B390A41257304A8002BD287 /* RangeSeekSliderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSliderDelegate.swift; sourceTree = "<group>"; };
 		6B390A42257304A8002BD287 /* RangeSeekSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSlider.swift; sourceTree = "<group>"; };
-		6B3B6B052573DAC9004217F6 /* Nexa-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa-Light.otf"; sourceTree = "<group>"; };
-		6B3B6B0D2573E562004217F6 /* IsidoraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IsidoraLight.otf; sourceTree = "<group>"; };
-		6B40E3252573D20200C4AE8E /* NexaLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NexaLight.otf; sourceTree = "<group>"; };
 		6B916EC62567C4A40090DDFD /* moviepicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moviepicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B916EC92567C4A40090DDFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B916ECB2567C4A40090DDFD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +133,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6B05A33D25765AD7000C5550 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6B916ECD2567C4A40090DDFD /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		6B390A35257303EA002BD287 /* RangeSlider */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,22 +151,11 @@
 			path = RangeSlider;
 			sourceTree = "<group>";
 		};
-		6B40E3242573D1A600C4AE8E /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				6B3B6B0D2573E562004217F6 /* IsidoraLight.otf */,
-				6B3B6B052573DAC9004217F6 /* Nexa-Light.otf */,
-				6B40E3252573D20200C4AE8E /* NexaLight.otf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		6B916EBD2567C4A40090DDFD = {
 			isa = PBXGroup;
 			children = (
 				6BD1DD11256BBC9F00511442 /* Localizable.strings */,
 				6B916EC82567C4A40090DDFD /* moviepicker */,
-				6B40E3242573D1A600C4AE8E /* Fonts */,
 				6B916EDF2567C4AA0090DDFD /* moviepickerTests */,
 				6B916EEA2567C4AA0090DDFD /* moviepickerUITests */,
 				6B916EC72567C4A40090DDFD /* Products */,
@@ -186,9 +177,9 @@
 		6B916EC82567C4A40090DDFD /* moviepicker */ = {
 			isa = PBXGroup;
 			children = (
+				6B05A33D25765AD7000C5550 /* ViewController */,
 				6B916EC92567C4A40090DDFD /* AppDelegate.swift */,
 				6B916ECB2567C4A40090DDFD /* SceneDelegate.swift */,
-				6B916ECD2567C4A40090DDFD /* ViewController.swift */,
 				6B916ECF2567C4A40090DDFD /* Main.storyboard */,
 				6B916ED22567C4A90090DDFD /* Assets.xcassets */,
 				6B916ED42567C4A90090DDFD /* LaunchScreen.storyboard */,
@@ -327,11 +318,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B3B6B062573DAC9004217F6 /* Nexa-Light.otf in Resources */,
 				6B916ED62567C4A90090DDFD /* LaunchScreen.storyboard in Resources */,
 				6BD1DD0F256BBC9F00511442 /* Localizable.strings in Resources */,
-				6B40E3262573D20200C4AE8E /* NexaLight.otf in Resources */,
-				6B3B6B0E2573E562004217F6 /* IsidoraLight.otf in Resources */,
 				6B916ED32567C4A90090DDFD /* Assets.xcassets in Resources */,
 				6B916ED12567C4A40090DDFD /* Main.storyboard in Resources */,
 			);

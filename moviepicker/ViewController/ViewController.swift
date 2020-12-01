@@ -11,7 +11,21 @@ class ViewController: UIViewController {
  
     @IBOutlet weak var myPickerView: UIPickerView!
     @IBOutlet weak var myToolbar: UIToolbar!
- 
+    @IBOutlet weak var toolbarFirstButton: UIBarButtonItem!
+    @IBOutlet weak var tabItem: UITabBarItem!
+    
+    @IBAction func sliderChanged(_ sender: RangeSeekSlider) {
+        
+       
+        
+        MinYearHolder =  Int(sender.selectedMinValue)
+        MaxYearHolder =   Int(sender.selectedMaxValue)
+        
+        
+        
+        myTableview.reloadData()
+        
+    }
     @IBAction func movieRateChange(_ sender: UISlider) {
         let floatFinder = Int(sender.value)
         let floatFinder2 = sender.value
@@ -35,9 +49,20 @@ class ViewController: UIViewController {
         }
         myTableview.reloadData()
     }
- 
+    @IBAction func FindYourMovie(_ sender: UIButton) {
+        //data = [PickClass.init(startMovieYear: MinYearHolder, endMovieYear: MaxYearHolder, movieTuru: genreHolder, izleyiciKitlesi: certifHolder,scoreMovie: scoreHolder)]
+        
+        data = PickClass(startMovieYear: MinYearHolder, endMovieYear: MaxYearHolder, movieTuru: genreHolder, izleyiciKitlesi: certifHolder,scoreMovie: scoreHolder)
+        
+        print("MinYear: \(MinYearHolder)")
+        print("MaxYear: \(MaxYearHolder)")
+        print("Score:  \(scoreHolder)")
+        
+        
+    }
+    
     @IBAction func myCancelItem(_ sender: UIBarButtonItem) {
-      
+        self.tabBarController?.tabBar.isHidden = false
         myPickerView.isHidden = true
         myToolbar.isHidden = true
     }
@@ -48,6 +73,7 @@ class ViewController: UIViewController {
         default: genderHolder = pendingGenderHolder
         }
   
+        self.tabBarController?.tabBar.isHidden = false
         myPickerView.isHidden = true
         myToolbar.isHidden = true
         myTableview.reloadData()
@@ -55,7 +81,7 @@ class ViewController: UIViewController {
     
 
     @IBOutlet weak var myTableview: UITableView!
-    var data = [PickClass]()
+    var data = PickClass()
     var gender:[String] = ["Any","Action","Adventure","Animation","Comedy","Crime","Documentary","Drama","Family","Fantasy","History","Horror","Music","Mystery","Romance","Science Fiction","TV Movie","Thriller","War","Western"]
     
     var certification:[String] = ["Any","General Audiences","Parenral Guidance Suggested","Parents Strongly Cautioned","Restricted","Adults Only"]
@@ -68,8 +94,12 @@ class ViewController: UIViewController {
     var pendingCertificationHolder = "Any"
     var scorenot = true
     
-  
     
+    //Class Holders
+    var MinYearHolder = 1948,MaxYearHolder = 2020
+    var genreHolder = "Any",certifHolder = "Any",scoreHolder = "None"
+    
+
     var genderORcertification = 3
     var valueRate = 0.5
     var counter = 1
@@ -78,6 +108,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+      
         
 
         
@@ -97,7 +129,7 @@ class ViewController: UIViewController {
         myToolbar.isUserInteractionEnabled = true
                self.view.addSubview(myToolbar)
     
-        data = [PickClass.init(startMovieYear: 2019, endMovieYear: 2020, movieTuru: "Action", izleyiciKitlesi: "cocuk")]
+    
         
     
         
@@ -132,7 +164,9 @@ class ViewController: UIViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "progressChange", for: indexPath) as! MyTableViewCell
        
             cell.myRangeSlider.maxValue = CGFloat(Calendar.current.component(.year, from: Date()))
-            cell.myRangeSlider.selectedMaxValue = CGFloat(Calendar.current.component(.year, from: Date()))
+           // cell.myRangeSlider.selectedMaxValue = CGFloat(Calendar.current.component(.year, from: Date()))
+            
+         
      
             return cell
        
@@ -142,11 +176,17 @@ class ViewController: UIViewController {
         
             cell.movieTuruL.text = "Genre".localized()
             cell.movieTuruResult.text = genderHolder.localized()
+            
+            genreHolder = cell.movieTuruResult.text ?? "Any"
+            
                 return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "movieIzleyici", for: indexPath) as! MyTableViewCell
             cell.izleyiciKitlesi.text = "Certificate".localized()
             cell.izleyiciKitlesiResult.text = certificationHolder.localized()
+            
+            certifHolder = cell.izleyiciKitlesiResult.text ?? "Any"
+            
             return cell
             
         case 5:
@@ -160,6 +200,8 @@ class ViewController: UIViewController {
                 cell.filmRate.text = "Score: \(valueRate)+".localized()
             }
             
+            
+            scoreHolder = String(valueRate)
             
             
             return cell
@@ -175,12 +217,15 @@ class ViewController: UIViewController {
             {
                 genderORcertification = 0
                 myPickerView.reloadAllComponents()
+                
+                self.tabBarController?.tabBar.isHidden = true
                 myPickerView.isHidden = false
                 myToolbar.isHidden = false
             }else if(indexPath.row == 4)
             {
                 genderORcertification = 1
                 myPickerView.reloadAllComponents()
+                self.tabBarController?.tabBar.isHidden = true
                 myPickerView.isHidden = false
                 myToolbar.isHidden = false
             }else{
@@ -228,19 +273,6 @@ extension ViewController:UIPickerViewDelegate,UIPickerViewDataSource{
     }
     
 }
-
-
-
-    func didStartTouches(in slider: RangeSeekSlider) {
-        print("did start touches")
-    }
-
-    func didEndTouches(in slider: RangeSeekSlider) {
-        print("did end touches")
-    }
-
-
-
 
 extension String {
     

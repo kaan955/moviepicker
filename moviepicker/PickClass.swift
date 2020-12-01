@@ -13,15 +13,18 @@ class PickClass {
     var endMovieYear:Int?
     var movieTuru:String?
     var izleyiciKitlesi:String?
+    var scoreMovie: String?
     
     init() {
     }
-    init(startMovieYear:Int,endMovieYear:Int,movieTuru:String,izleyiciKitlesi:String)
+    init(startMovieYear:Int,endMovieYear:Int,movieTuru:String,izleyiciKitlesi:String,scoreMovie:String)
     {
-        self.startMovieYear = startMovieYear;
-        self.endMovieYear = endMovieYear;
-        self.movieTuru = movieTuru;
-        self.izleyiciKitlesi = izleyiciKitlesi;
+        self.startMovieYear = startMovieYear
+        self.endMovieYear = endMovieYear
+        self.movieTuru = movieTuru
+        self.izleyiciKitlesi = izleyiciKitlesi
+        self.scoreMovie = scoreMovie
+        
     }
     
     
